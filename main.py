@@ -270,5 +270,5 @@ def handling_command(command):
         
 
 # running the app
-socketio.run(app, host='0.0.0.0', port=81, debug=False)
+socketio.run(app, host='0.0.0.0', port=81, debug=False,allow_unsafe_werkzeug=True)
 
