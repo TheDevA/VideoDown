@@ -1,0 +1,27 @@
+
+*{
+  font-family: 'Poppins', sans-serif;
+}
+html,
+body {
+  height: 100%
+}
+body{
+  background: linear-gradient(#1C1C1C,black);
+}
+#navBar{
+  background-color:#1C1C1C;
+  height:10%;
+}
+#navLink{
+  color:#FFD100;
+  transition:0.3s;
+  border-bottom: transparent solid 5px;
+  border-radius:0.8rem;
+}
+#navLink:hover{
+  border-bottom: #FFEE32 solid 3px;
+}
+#navTitle{
+  color:#FFEE32
+}

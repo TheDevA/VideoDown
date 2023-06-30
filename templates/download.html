@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block head%}
+
+<link rel="stylesheet" href="{{url_for('static',filename='css/download.css')}}">
+{% endblock %}
+
+
+{% block body %}
+<div id="mainCont" class="container">
+  <p class="fs-6 fw-bold text-capitalize m-2" >Status:</p>
+  <div class="d-flex flex-row mb-3 justify-content-center">
+    <p class="fs-6 text-capitalize m-2" id="fileStatus">None: </p>
+    <p class="fs-6 m-2" id="fileName">None</p>
+    <p class="fs-6 m-2" id="fileSize">None</p>
+  </div>
+  
+  <div class="d-flex flex-row mb-3 justify-content-center">
+    <p class="fs-6 fw-bold text-capitalize m-2" >Post Processer Status:</p>
+    <p class="fs-6 text-capitalize m-2" id="fileStatusP">None: </p>
+    <p class="fs-6 m-2" id="fileProcessing">None</p>
+  </div>
+<table class="table" >
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">File Name</th>
+      <th scope="col">File Size</th>
+      <th scope="col">File Link</th>
+    </tr>
+  </thead>
+  <tbody id="fileSystemTable">
+  </tbody>
+</table>
+</div>
+<!-- JavaScripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+<script src="{{ url_for('static',filename='js/download.js') }}"/>
+{% endblock %}

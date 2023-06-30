@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/video.css')}}">
+{% endblock %}
+
+{% block body %}
+<!--  Working State  -->
+<div id="mainCont" class="workingState container" hidden>
+  <p class="fs-2 fw-bold mt-1">Video Information:</p>
+
+<div  class="d-flex flex-row">
+  <div id="thumbnailImg" class="flex-grow-1"><img id="thumbnail" class="img-thumbnail img-fluid" src="https://i.ytimg.com/vi/X4KNqjF34E4/maxresdefault.jpg"></div>
+   <div id="videoDesc" class="d-flex flex-column p-1">
+     <p id="videoTitle" class="fs-5">Title</p>
+     <p id="videoUploader" class="fs-6 fw-light">Uploader</p> 
+     <p id="videoDuration" class="fs-6 fw-light">Duration</p> 
+     
+   </div>
+</div>  
+<p class="fs-2 fw-bold mt-1">Video Formats:</p>
+  <div id="videoFormatsDOM" class="d-grid d-md-block">
+    <input type="radio" class="btn-check" name="btnradio" id="b" autocomplete="off" checked>
+    <label class="formatBtn btn btn-outline-primary m-1" for="b">Best Video & Audio</label>
+    <input type="radio" class="btn-check" name="btnradio" id="bv" autocomplete="off">
+    <label class="formatBtn btn btn-outline-primary m-1" for="bv">Best Video (video-only)</label>
+    <input type="radio" class="btn-check" name="btnradio" id="ba" autocomplete="off">
+    <label class="formatBtn btn btn-outline-primary m-1" for="ba">Best Audio (audio-only)</label>
+    <input type="radio" class="btn-check" name="btnradio" id="bv*" autocomplete="off">
+    <label class="formatBtn btn btn-outline-primary m-1" for="bv*">Best Video (may contain audio)</label>
+    <input type="radio" class="btn-check" name="btnradio" id="ba*" autocomplete="off">
+    <label class="formatBtn btn btn-outline-primary m-1" for="ba*">Best Audio (may contain video)</label>
+</div>
+  <p class="fs-2 fw-bold mt-1">File Extension:</p>
+  <input type="radio" class="btn-check" name="btnExt" id="btnMP4" autocomplete="off" checked>
+  <label class="formatBtn btn btn-outline-primary m-1" for="btnMP4">MP4</label>
+  <input type="radio" class="btn-check" name="btnExt" id="btnMP3" autocomplete="off">
+  <label class="formatBtn btn btn-outline-primary m-1" for="btnMP3">MP3</label>
+  <div class="d-flex flex-row-reverse w-100 mt-1"> <button id="downButton" type="button" class="btn btn-warning">Download</button></div>
+</div>
+<!--  Loading State  -->
+<div id="mainCont" class="loadingState placeholder-glow container">
+  <p class="fs-2 fw-bold mt-1">Video Information:</p>
+
+<div  class="d-flex flex-row">
+  <div id="thumbnailImg" class="placeholder flex-grow-1"><img class="img-thumbnail img-fluid" src="https://i.ytimg.com/vi_webp/QD0Wlsm_Sdk/maxresdefault.webp"></div>
+   <div id="videoDesc" class="placeholder d-flex flex-column p-1">
+     <p id="videoTitle" class="placeholder fs-5"><span class="placeholder fw-bold">Title</p>
+     <p class="placeholder fs-6 fw-light"><span class="placeholder fw-bold">Channel</p> 
+     <p class="placeholder fs-6 fw-light"><span class="placeholder fw-bold">Duration</p> 
+     
+   </div>
+</div>  
+<p class="fs-2 fw-bold mt-1">Video Formats:</p>
+  <div class="d-grid d-md-block">
+  <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" disabled>
+  <label class="formatBtn placeholder btn btn-outline-primary m-1" for="btnradio1">Opt 1</label>
+  <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" disabled>
+  <label class="formatBtn placeholder btn btn-outline-primary m-1" for="btnradio2">Opt 2</label>
+  <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" disabled>
+  <label class="formatBtn placeholder btn btn-outline-primary m-1" for="btnradio3">Opt 3</label>
+  <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" disabled>
+  <label class="formatBtn placeholder btn btn-outline-primary m-1" for="btnradio4">Opt 1</label>
+</div>
+  <p class="fs-2 fw-bold mt-1">File Extension:</p>
+  <input type="radio" class="btn-check" name="btnExt" id="btnMP4" autocomplete="off" disabled>
+  <label class="formatBtn placeholder btn btn-outline-primary m-1" for="btnMP4">MP4</label>
+  <input type="radio" class="btn-check" name="btnExt" id="btnMP3" autocomplete="off" disabled>
+  <label class="formatBtn placeholder btn btn-outline-primary m-1" for="btnMP3">MP3</label>
+  <div class="d-flex flex-row-reverse w-100 mt-1"> <button type="button" class="placeholder btn btn-warning" disabled>Download</button></div>
+</div>
+<!-- Invalid State  -->
+<div id="mainCont" class="invalidState placeholder-glow container" hidden>
+  <p class="fs-2 fw-bold mt-1">Invalid Url :(</p>
+</div>
+<!-- JavaScripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+<script src="{{ url_for('static',filename='js/video.js') }}"/>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static',filename='/css/index.css')}}">
+{% endblock %}
+
+{% block body %}
+<div id="mainCont" class="d-flex flex-column justify-content-center align-items-center" >
+  <p class="fs-1 fw-bold">Video Link</p>
+  <input id="linkInp" class="mb-3 form-control form-control-lg w-50" type="text" placeholder="Please type the url for the video" aria-label=".form-control-lg example">
+  <button class="btn btn-lg btn-primary fw-bold" id="sendBtn" type="submit">Go</button>
+      
+</div>
+<!-- JavaScript -->
+<script src="{{ url_for('static',filename='js/index.js') }}"/>
+{% endblock %}

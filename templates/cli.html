@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/cli.css')}}"/>
+{% endblock %}
+
+{% block body %}
+<div id="mainCont" class="container">
+  <div class="input-group flex-nowrap">
+  <span class="input-group-text" id="addon-wrapping">CMD</span>
+  <input id="linkInp" type="text" class="form-control" placeholder="command" aria-label="command" aria-describedby="addon-wrapping">
+    <button class="enterBtn btn btn-outline-secondary" type="button">Button</button>
+  </div>
+  <div class="form-floating mt-3">
+  <textarea class="form-control" placeholder="RealTime output" id="floatingTextarea1" style="height: 500px" readonly></textarea>
+  <label for="floatingTextarea1">RealTime output</label>
+  <div class="form-floating mt-3">
+  <textarea class="form-control" placeholder="Logs" id="floatingTextarea2" style="height: 100px" readonly>  
+  </textarea>
+  <label for="floatingTextarea2">Command Logs</label>
+    
+  </div>
+  <a class="enterBtn btn btn-outline-secondary m-3" role="button" aria-disabled="true" href="/fileSystem">File Sysytem</a>
+</div>
+
+<!-- JavaScripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+<script src="{{url_for('static',filename='js/cli.js')}}"/>
+{% endblock %}
